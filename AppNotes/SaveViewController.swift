@@ -29,6 +29,7 @@ class SaveNoteViewController: UIViewController {
         self.note.date = dateAndTime.date()
         self.note.time = dateAndTime.time()
         self.realmManager.saveObjects(objs: note)
+        
     }
 }
 
