@@ -16,13 +16,12 @@ class EditViewController: UIViewController {
     @IBOutlet weak var shareButton: UITextView!
     let realmManager = RealmManager()
     let dateAndTime = DateAndTime()
-    let realm = try! Realm()
     var notes: Results<NoteList>!
     var arrayIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        notes = realm.objects(NoteList.self)
+        notes = realmManager.realm?.objects(NoteList.self)
         let note = notes[arrayIndex]
         viewNote.text = note.note
     }
@@ -41,7 +40,7 @@ class EditViewController: UIViewController {
                 self.realmManager.deleteObject(objs: note)
             } else {
                 let note = notes[arrayIndex]
-                try! self.realm.write {
+                try? self.realmManager.realm?.write {
                     note.note = viewNote.text
                     note.date = dateAndTime.date()
                     note.time = dateAndTime.time()

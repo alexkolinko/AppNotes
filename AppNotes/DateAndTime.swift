@@ -14,16 +14,16 @@ class DateAndTime {
         let todaysDate = NSDate()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
-        let DateInFormat = dateFormatter.string(from: todaysDate as Date)
-        return DateInFormat
+        let dateInFormat = dateFormatter.string(from: todaysDate as Date)
+        return dateInFormat
     }
     
     func time() -> String {
         let todaysDate = NSDate()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let DateInFormat = dateFormatter.string(from: todaysDate as Date)
-        return DateInFormat
+        let dateInFormat = dateFormatter.string(from: todaysDate as Date)
+        return dateInFormat
     }
 }
 

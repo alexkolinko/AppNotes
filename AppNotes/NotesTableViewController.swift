@@ -14,12 +14,13 @@ class NotesTableViewController: UITableViewController {
     @IBOutlet var notesTable: UITableView!
     @IBOutlet weak var addNote: UIBarButtonItem!
     let realmManager = RealmManager()
-    let realm = try! Realm()
+
     var notes: Results<NoteList>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        notes = realm.objects(NoteList.self)
+      notes = realmManager.realm?.objects(NoteList.self)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

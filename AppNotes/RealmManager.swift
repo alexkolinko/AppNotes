@@ -15,7 +15,7 @@ class RealmManager {
     
     func saveObjects(objs: Object) {
         try? realm!.write {
-            realm?.add(objs, update: false)
+            realm?.add(objs)
         }
     }
     
